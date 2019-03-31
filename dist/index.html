@@ -9,68 +9,94 @@
 
 </head> 
 <body>
-        <div id="allUsers">
-            <input type="submit" name="submit" value="все пользователи" id="getAllUsers">
-        </div>
+    <h3>Посмотреть всех пользователей</h3>
+    <div id="allUsers" style="display: inline-block;">
+        <input type="button" value="все пользователи" id="getAllUsers">
+    </div>
+    <div id="allUsers_result" style="display: inline-block;">
 
-        <hr>
+    </div>
 
-        <div id="oneUser">
-            <form id="oneUserForm">
-                <b>Input id</b>
+    <hr>
+
+    <h3>Посмотреть одного пользователя</h3>
+    <div id="oneUser" style="display: inline-block;">
+        <form id="oneUserForm" >
+            <div >
+                <p>Введите id пользователя</p>
                 <input type="text" name="id"> 
+            </div>
+            <div>
                 <input type="submit" name="submit" value="показать пользователя">
-            </form>
-        </div>
-
-        <hr>
-
-        <div id="insertUser">
-            <form id="insertUserForm">
-                <div>
-                    <p>Имя</p>
-                    <input type="text" name="name">
-                </div>
-                <div>
-                    <p>Возраст</p>
-                    <input type="text" name="age">
-                </div>
-                
-                <input type="submit" name="submit" value="добавить пользователя">
-            </form>
-        </div>
-
-        <hr>
-
-        <div id="updateUser">
-            <form id="updateUserForm">
-                <div>
-                    <p>Имя</p>
-                    <input type="text" name="name">
-                </div>
-                <div>
-                    <p>Возраст</p>
-                    <input type="text" name="age">
-                </div>
-                <input type="submit" name="submit" value="изменить пользователя">
-            </form>
-        </div>
-
-        <hr>
+            </div>
+        </form>
+    </div>
+    <div id="oneUser_result" style="display: inline-block;">
         
-        <div id="deleteUser">
-            <form id="deleteUserForm">
-                <div>
-                    <p>Имя</p>
-                    <input type="text" name="name">
-                </div>
-                <div>
-                    <p>Возраст</p>
-                    <input type="text" name="age">
-                </div>
+    </div>
+
+    <hr>
+
+    <h3>Добавить пользователя</h3>
+    <div id="insertUser" style="display: inline-block;">
+        <form id="insertUserForm">
+            <div>
+                <p>Имя</p>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <p>Возраст</p>
+                <input type="text" name="age">
+            </div>
+            
+            <input type="submit" name="submit" value="добавить пользователя">
+        </form>
+    </div>
+    <div id="insertUser_result" style="display: inline-block;">
+        
+    </div>
+
+    <hr>
+
+    <h3>Изменить пользователя</h3>
+    <div id="updateUser" style="display: inline-block;">
+        <form id="updateUserForm">
+            <div>
+                <p>id</p>
+                <input type="text" name="id"> 
+            </div>
+            <div>
+                <p>Имя</p>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <p>Возраст</p>
+                <input type="text" name="age">
+            </div>
+            <input type="submit" name="submit" value="изменить пользователя">
+        </form>
+    </div>
+    <div id="updateUser_result" style="display: inline-block;">
+        
+    </div>
+
+    <hr>
+
+    <h3>Удалить пользователя</h3>
+    <div id="deleteUser" style="display: inline-block;">
+        <form id="deleteUserForm">
+            <div>
+                <p>Введите id пользователя</p>
+                <input type="text" name="id"> 
+            </div>
+            <div>
                 <input type="submit" name="submit" value="удалить пользователя">
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
+    <div id="deleteUser_result" style="display: inline-block;">
+        
+    </div>
     <script type="text/javascript" src="./Client.js"></script>
 </body>
 </html>

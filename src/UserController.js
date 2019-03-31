@@ -2,36 +2,53 @@ let store = require('./Store')
 
 class UserController {
     getAllUsers(req, res) {
-        console.log(store);
+        res.status(200).json(store);
     }
 
     getUser(req, res) {
-        const user = store.find( (elem) => {
+        const user = store.find( (elem) => { 
             return elem.id === parseInt(req.params.id);
-        })
-        console.log(user);
+        });
+        user ? res.status(200).json(user) : res.status(404).json({message: 'user not found'});
     }
 
-    addUser(req, res) {
+    insertUser(req, res) {
         const newUser = req.body;
-        newUser.id = store.length + 1;
+
+        const newId = store.length ? store[store.length-1].id + 1 : 1 
+        newUser.id = newId;
         store.push(newUser);
-        console.log(store);
+        
+        res.status(200).json(newUser);
     }
 
     deleteUser(req, res) {
-        store = store.filter( elem => elem.id !== parseInt(req.params.id));
+        const user = store.find( (elem) => {
+            return elem.id === parseInt(req.params.id);
+        }) 
+        if (!user) { // если пользователь не найден
+            res.status(404).json({message: 'user not found'});
+        } else {
+            store = store.filter( elem => elem.id !== parseInt(req.params.id));
+            res.status(200).json(user);
+        }
     }
 
-    changeUser(req, res) {
-        if (Object.keys(req.body).length) { // если есть тело запроса
-            const user = store.find( (elem) => {
-                return elem.id === parseInt(req.params.id);
-            })
-            if (user) { // если пользователь найден
+    updateUser(req, res) {
+        const user = store.find( (elem) => {
+            return elem.id === parseInt(req.params.id);
+        }) 
+        if (!user) {
+            res.status(404).json({message: 'user not found'});
+        } else {
+            if (Object.keys(req.body).length) { // если есть тело запроса
+
                 for (let key in req.body) {
                     user[key] = req.body[key];
                 }
+                res.status(200).json(user);   
+            } else {
+                res.status(200).json(user);
             }
         }
     }
